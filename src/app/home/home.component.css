@@ -1,3 +1,11 @@
+#container{
+  padding: 30px 50px 0;
+}
 .example-spacer {
   flex: 1 1 auto;
+}
+.example-icon{
+  border: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
 }

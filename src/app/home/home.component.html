@@ -13,7 +13,7 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>My App</span>
+    <span>SPA</span>
     <span class="example-spacer"></span>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>
@@ -23,30 +23,32 @@
     </button>
   </mat-toolbar>
 
-  <div>
-    <spa-alunos [valorInicial]="valor"></spa-alunos>
+  <div id="container">
+    <div>
+      <spa-alunos [valorInicial]="valor"></spa-alunos>
 
-    <button (click)="mudarValor()">Mudar Valor</button>
-    <button (click)="reiniciarValor()">Reiniciar Valor</button>
-    <button (click)="exibirTabela()">Exibir Tabela</button>
+      <button (click)="mudarValor()">Mudar Valor</button>
+      <button (click)="reiniciarValor()">Reiniciar Valor</button>
+      <button (click)="exibirTabela()">Exibir Tabela</button>
+    </div>
+
+    <table *ngIf="exibeTabela">
+      <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>E-mail</th>
+        <th>Curso</th>
+      </tr>
+      <tr *ngFor="let aluno of listAlunos">
+        <th>{{aluno.nome}}</th>
+        <th>{{aluno.idade}}</th>
+        <th>{{aluno.email}}</th>
+        <th>{{aluno.curso}}</th>
+      </tr>
+    </table>
+
+    <spa-professores></spa-professores>
   </div>
-
-  <table *ngIf="exibeTabela">
-    <tr>
-      <th>Nome</th>
-      <th>Idade</th>
-      <th>E-mail</th>
-      <th>Curso</th>
-    </tr>
-    <tr *ngFor="let aluno of listAlunos">
-      <th>{{aluno.nome}}</th>
-      <th>{{aluno.idade}}</th>
-      <th>{{aluno.email}}</th>
-      <th>{{aluno.curso}}</th>
-    </tr>
-  </table>
-
-  <spa-professores></spa-professores>
 
 </body>
 
